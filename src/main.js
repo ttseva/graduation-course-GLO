@@ -1,6 +1,7 @@
 import modal from './modules/modal.js'
 import scrollTop from './modules/scrollTop.js'
 import documents from './modules/documents.js'
+import timer from './modules/timer.js'
 
 const modalHeader = {
   modalBlock: '.header-modal',
@@ -22,3 +23,4 @@ modal(modalOrder);
 
 scrollTop();
 documents();
+timer('1 april 2026')
