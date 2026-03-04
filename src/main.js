@@ -1,4 +1,6 @@
 import modal from './modules/modal.js'
+import scrollTop from './modules/scrollTop.js'
+
 
 const modalHeader = {
   modalBlock: '.header-modal',
@@ -17,3 +19,5 @@ const modalOrder = {
 modal(modalHeader);
 modal(modalCallback);
 modal(modalOrder);
+
+scrollTop();

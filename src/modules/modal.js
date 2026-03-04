@@ -1,7 +1,6 @@
-const modal = ({ modalBlock, attr }) => {
+const modal = ({modalBlock, attr}) => {
   const modal = document.querySelector(modalBlock);
   const overlay = document.querySelector('.overlay');
-  console.log(modal)
 
   if (!modal) return;
 
