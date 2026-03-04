@@ -4,15 +4,17 @@ const documents = () => {
   const certificates = document.querySelectorAll('.document-inner');
   const overlay = document.querySelector('.overlay');
 
-  const overlayDocument = document.createElement('img');
-  overlayDocument.classList.add('overlayDocument');
-  overlay.appendChild(overlayDocument);
+  let overlayDocument = null;
 
   certificates.forEach((certificate) => {
     certificate.addEventListener('click', (e) => {
       e.preventDefault();
 
+      overlayDocument = document.createElement('img');
       overlayDocument.src = certificate.getAttribute('href');
+      overlayDocument.classList.add('overlayDocument');
+      overlay.appendChild(overlayDocument);
+
       overlay.style.display = 'block';
 
       animate({
@@ -30,7 +32,10 @@ const documents = () => {
   overlay.addEventListener('click', (e) => {
     if (e.target === overlay) {
       overlay.style.display = 'none';
-      overlayDocument.src = '';
+      if (overlayDocument) {
+        overlayDocument.remove();
+        overlayDocument = null;
+      }
     }
   });
 };
