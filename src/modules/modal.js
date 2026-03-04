@@ -7,8 +7,8 @@ const modal = ({modalBlock, attr}) => {
   const openModal = (modal, attr) => {
     const modalBtn = document.querySelectorAll(`a[href="${attr}"]`);
     modalBtn.forEach(btn => {
-      btn.addEventListener('click', event => {
-        event.preventDefault();
+      btn.addEventListener('click', e => {
+        e.preventDefault();
         modal.style.display = 'block';
         overlay.style.display = 'block';
       })
