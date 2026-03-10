@@ -1,8 +1,7 @@
 import {validate} from "./helpers.js";
 
-const form = () => {
+const form = (formIds) => {
   const totalOutput = document.querySelector('#calc-total');
-  const formIds = ['application', 'callback', 'order', 'order_1', 'order_2'];
 
   const getForm = (blockId) => {
     const form = document.querySelector(`#${blockId} form`);

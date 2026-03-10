@@ -4,31 +4,35 @@ import documents from './modules/documents.js'
 import timer from './modules/timer.js'
 import form from './modules/form.js'
 import calculator from './modules/calculator.js'
+import sliders from './modules/sliders.js'
 
-const modalHeader = {
-  modalBlock: '.header-modal',
-  attr: '#callback'
-};
-const modalCallback = {
-  modalBlock: '.services-modal',
-  attr: '#application'
-};
+const modals = [
+  {
+    modalBlock: '.header-modal',
+    attr: '#callback'
+  },
+  {
+    modalBlock: '.services-modal',
+    attr: '#application'
+  },
+  {
+    modalBlock: '.discount-modal',
+    attr: '#order'
+  }
+]
 
-const modalOrder = {
-  modalBlock: '.discount-modal',
-  attr: '#order'
-};
+const forms = ['application', 'callback', 'order', 'order_1', 'order_2']
+const discountDueTime = '1 april 2026'
 
-modal(modalHeader);
-modal(modalCallback);
-modal(modalOrder);
-
-scrollTop();
-documents();
-timer('1 april 2026');
-form();
 
 if (document.querySelector('body').classList.contains('balkony')) calculator();
+
+modal(modals);
+scrollTop();
+documents();
+timer(discountDueTime);
+form(forms);
+sliders();
 
 
 // document.addEventListener('mouseover', (e) => {
