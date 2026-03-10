@@ -15,4 +15,23 @@ function animate({timing, draw, duration}) {
   });
 }
 
-export {animate};
+function validate(inputs) {
+  inputs.forEach(input => {
+    input.addEventListener('input', (e) => {
+      if (input.type === 'text') {
+        e.target.value = e.target.value.replace(/[^а-яА-ЯёЁa-zA-Z]+/g, '');
+      } else if (input.type === 'tel') {
+        e.target.value = e.target.value.replace(/[^0-9]/g, '').slice(0, 16);
+
+        if (e.target.value.length > 0) {
+          e.target.value = '+' + e.target.value;
+        } else {
+          e.target.value = '';
+        }
+      }
+    })
+  })
+}
+
+
+export {animate, validate};

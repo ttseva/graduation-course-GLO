@@ -1,3 +1,5 @@
+import {validate} from "./helpers.js";
+
 const form = () => {
   const getForm = (blockId) => {
     const form = document.querySelector(`#${blockId} form`);
@@ -23,7 +25,7 @@ const form = () => {
     inputs.forEach(input => {
       if (!input.value.trim()) {
         input.classList.add('error');
-        // input.setAttribute('placeholder', 'Поле не может быть пустым');
+        input.setAttribute('placeholder', 'Поле не может быть пустым');
         hasEmpty = true;
       } else {
         input.classList.remove('error');
@@ -58,6 +60,7 @@ const form = () => {
 
   formIds.forEach(name => {
     const form = getForm(name);
+    validate(form.inputs)
     handleForm(form);
   });
 }
