@@ -12,6 +12,7 @@ const calculator = () => {
   validate([calcArea]);
 
   const calculateTotal = (area, type, materialType) => {
+    if (!materialType) materialType = 1;
     if (area && type) {
       totalSum = (area * type * materialType).toFixed(2);
       total.value = totalSum;

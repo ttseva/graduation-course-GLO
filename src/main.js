@@ -27,7 +27,9 @@ scrollTop();
 documents();
 timer('1 april 2026');
 form();
-calculator()
+
+if (document.querySelector('body').classList.contains('balkony')) calculator();
+
 
 // document.addEventListener('mouseover', (e) => {
 //   console.log(e.target)
