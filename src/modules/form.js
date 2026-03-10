@@ -41,16 +41,15 @@ const form = (formIds) => {
     formObj.submitBtn.addEventListener('click', (e) => {
       e.preventDefault();
 
-
       if (!isEmpty(formObj.inputs)) {
-        const total = totalOutput.value;
+
+        const total = totalOutput ? totalOutput.value : 0;
         const formData = {};
 
         formObj.inputs.forEach((input) => {
           formData[input.name] = input.value
         })
         formData['total'] = total;
-        console.log(formData);
 
         sendForm(formData)
           .then(data => {
@@ -58,6 +57,12 @@ const form = (formIds) => {
               input.value = '';
             })
           })
+
+        const oldButtonText = formObj.submitBtn.textContent;
+        formObj.submitBtn.textContent = 'Форма отправлена!'
+        setTimeout(() => {
+          formObj.submitBtn.textContent = oldButtonText;
+        }, 2000);
       }
     })
   }
