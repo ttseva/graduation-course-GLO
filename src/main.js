@@ -4,7 +4,7 @@ import documents from './modules/documents.js'
 import timer from './modules/timer.js'
 import form from './modules/form.js'
 import calculator from './modules/calculator.js'
-import sliders from './modules/sliders.js'
+import slider from './modules/slider.js'
 
 const modals = [
   {
@@ -21,20 +21,30 @@ const modals = [
   }
 ]
 
+const sliders = [
+  {
+    sliderBlock: 'benefits',
+    slideSelector: '.benefits__item',
+    countLowest: 1,
+    countHighest: 3
+  },
+  {
+    sliderBlock: 'services',
+    slideSelector: '.service-block',
+    countLowest: 1,
+    countHighest: 2
+  }
+];
+
 const forms = ['application', 'callback', 'order', 'order_1', 'order_2']
 const discountDueTime = '1 april 2026'
 
 
-if (document.querySelector('body').classList.contains('balkony')) calculator();
-
-modal(modals);
 scrollTop();
+modal(modals);
 documents();
 timer(discountDueTime);
 form(forms);
-sliders();
+slider(sliders);
 
-
-// document.addEventListener('mouseover', (e) => {
-//   console.log(e.target)
-// })
+if (document.querySelector('body').classList.contains('balkony')) calculator();

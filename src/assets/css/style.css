@@ -19,6 +19,10 @@ h3 {
   text-transform: uppercase;
 }
 
+.hidden {
+  display: none;
+}
+
 .text-normal {
   font-family: "NeoSansCyr-Medium", sans-serif !important;
 }
@@ -1941,7 +1945,7 @@ input.error {
 
 .benefits-wrap {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   margin: 0 auto;
 }
 
