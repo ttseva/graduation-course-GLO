@@ -1,6 +1,9 @@
 import {validate} from "./helpers.js";
 
 const form = () => {
+  const totalOutput = document.querySelector('#calc-total');
+  const formIds = ['application', 'callback', 'order', 'order_1', 'order_2'];
+
   const getForm = (blockId) => {
     const form = document.querySelector(`#${blockId} form`);
     const inputs = form.querySelectorAll('input');
@@ -39,12 +42,16 @@ const form = () => {
     formObj.submitBtn.addEventListener('click', (e) => {
       e.preventDefault();
 
+
       if (!isEmpty(formObj.inputs)) {
+        const total = totalOutput.value;
         const formData = {};
+
         formObj.inputs.forEach((input) => {
           formData[input.name] = input.value
-          console.log(formData)
         })
+        formData['total'] = total;
+        console.log(formData);
 
         sendForm(formData)
           .then(data => {
@@ -55,8 +62,6 @@ const form = () => {
       }
     })
   }
-
-  const formIds = ['application', 'callback', 'order', 'order_1', 'order_2'];
 
   formIds.forEach(name => {
     const form = getForm(name);

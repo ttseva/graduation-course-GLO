@@ -3,6 +3,7 @@ import scrollTop from './modules/scrollTop.js'
 import documents from './modules/documents.js'
 import timer from './modules/timer.js'
 import form from './modules/form.js'
+import calculator from './modules/calculator.js'
 
 const modalHeader = {
   modalBlock: '.header-modal',
@@ -26,6 +27,7 @@ scrollTop();
 documents();
 timer('1 april 2026');
 form();
+calculator()
 
 // document.addEventListener('mouseover', (e) => {
 //   console.log(e.target)

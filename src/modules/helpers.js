@@ -18,7 +18,9 @@ function animate({timing, draw, duration}) {
 function validate(inputs) {
   inputs.forEach(input => {
     input.addEventListener('input', (e) => {
-      if (input.type === 'text') {
+      if (input.inputMode === 'numeric') {
+        e.target.value = e.target.value.replace(/[^0-9]/g, '');
+      } else if (input.type === 'text') {
         e.target.value = e.target.value.replace(/[^а-яА-ЯёЁa-zA-Z]+/g, '');
       } else if (input.type === 'tel') {
         e.target.value = e.target.value.replace(/[^0-9]/g, '').slice(0, 16);
